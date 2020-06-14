@@ -76,4 +76,17 @@ Typical json representation of a _note_:
 
 ## Demo
 
+(soon)
+
 ## Future development
+
+Possible features and improvements.... though these may go against the objective of simplified usage!
+
+* (multi-)touch & pressure support
+* generalize (or plugin?) rest support
+* scaling / re-sizing
+* undo / eraser
+* sharing
+* export (svg download)
+* multi-user (as "layers")
+
