@@ -1,0 +1,145 @@
+<!DOCTYPE html><html><head><title>scribby examples</title>
+<script src="../lib/scribby.js"></script>
+<script src="../lib/draggy.js"></script>
+<script src="../lib/notey.js"></script>
+<script src="../lib/resty.js"></script>
+
+<script>
+
+var latest = null;
+Notey.pageKey = 'EXAMPLE';
+//Notey.remoteUrl = 'https://jsonblob.com/api/jsonBlob';  //feeling lucky???
+
+function init() {
+	//this just makes a simple scribby-enabled svg element
+	new Scribby(document.getElementById("svgElement"));
+
+	//this will load previous Noteys, or just make a single new one
+	var alln = Notey.loadAll();  //comes from localStorage
+	if (!alln || (alln.length < 1)) {
+		addNotey();
+	} else {
+		for (var i = 0 ; i < alln.length ; i++) {
+			addListeners(alln[i]);
+			alln[i].attachToBody();
+		}
+		latest = alln[alln.length - 1];
+	}
+
+}
+
+function addNotey() {
+	latest = new Notey();
+	addListeners(latest);
+	latest.attachToBody();
+	latest.save();
+	return latest;
+}
+
+function addListeners(note) {
+	note.el.addEventListener("notey.deleted", function() { latest = null });
+	note.el.addEventListener("notey.modified", function(ev) { latest = Notey.getById(ev.target.id); });
+}
+
+
+document.addEventListener( "DOMContentLoaded", function() {
+	document.removeEventListener( "DOMContentLoaded", arguments.callee, false);
+	init();
+}, false);
+
+function toImg() {
+	if (!latest) return;
+	latest.getDataURL(function(dataURL) {
+		document.getElementById('test-image').src = dataURL;
+	});
+}
+</script>
+
+<style>
+#svgElement {
+	outline: solid 3px green;
+	margin: 30px;
+	cursor: crosshair;
+}
+
+#test-image {
+	background-color: rgba(100,100,100,0.4);
+	outline: 1px dashed #888;
+}
+
+.draggy {
+	position: absolute;
+}
+
+.draggy svg {
+	cursor: crosshair;
+}
+
+.dragging {
+	opacity: 0.6;
+}
+
+.dragbar {
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	background-color: rgba(0,0,0,0.1);
+	display: none;
+	height: 20px;
+	cursor: grab;
+}
+
+.draggy:hover, .draggy-new {
+	box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2);
+}
+
+.draggy:hover .dragbar {
+	display: block;
+}
+
+.drag-down .dragbar, .dragging .dragbar {
+	cursor: grabbing;
+}
+
+.dragbar-button {
+	width: 16px;
+	height: 16px;
+	background-color: #888;
+	text-align: center;
+	font-weight: bold;
+	font-family: arial, sans;
+	margin: 2px 1px;
+	cursor: pointer;
+	font-size: 14px;
+	color: #FFF;
+	border-radius: 3px;
+	float: right;
+}
+
+.notey-svg-text {
+	font-family: arial, sans;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div style="height: 300px; float: right; padding: 30px;">
+<button onClick="toImg()">Make a note into a PNG!</button><br />
+<img id="test-image" />
+</div>
+
+<div>
+svg element enabled with scribby:<br />
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+	id="svgElement" x="0px" y="0px" width="600px" height="400px"
+viewBox="0 0 600 400" enable-background="new 0 0 600 400" xml:space="preserve">
+
+<div>
+	<button onClick="addNotey()">New Notey</button>
+	And some notes...
+</div>
+
+</body></html>
