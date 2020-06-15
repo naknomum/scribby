@@ -76,12 +76,13 @@ Typical json representation of a _note_:
 
 ## Demo
 
-(soon)
+[Try it out.](https://naknomum.github.io/scribby/)
 
 ## Future development
 
 Possible features and improvements.... though these may go against the objective of simplified usage!
 
+* set default css inside notey.js (so it doesnt fall apart when page has no css)
 * (multi-)touch & pressure support
 * better configuration via constructor
 * generalize (or plugin?) rest support
