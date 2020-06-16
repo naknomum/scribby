@@ -49,7 +49,7 @@ document.addEventListener( "DOMContentLoaded", function() {
 
 function toImg() {
 	if (!latest) return;
-	latest.getDataURL(function(dataURL) {
+	latest.getPngDataURL(function(dataURL) {
 		document.getElementById('test-image').src = dataURL;
 	});
 }
