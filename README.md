@@ -82,7 +82,7 @@ Typical json representation of a _note_:
 
 Possible features and improvements.... though these may go against the objective of simplified usage!
 
-* (multi-)touch & pressure support
+* multi-touch & pressure support
 * better configuration via constructor
 * generalize (or plugin?) rest support
 * scaling / re-sizing
