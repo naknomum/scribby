@@ -19,7 +19,7 @@ _scribby_ is a javascript library which lets users draw simple "scribbles" on a 
 ## Components
 
 The main functionality is in **scribby.js**, which handles the drawing on an svg dom element.  Also included is **notey.js** which presents
-a simple post-it note-like object on a webpage, as an example application using scribby.js.  Utility functionality is found in draggy.js and resty.js.
+a simple post-it note-like object on a webpage, as an example application using scribby.js.  Utility functionality is found in draggy.js and resty.js (but these are only needed for the Notey app).
 
 ## Usage examples
 
