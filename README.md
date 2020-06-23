@@ -28,6 +28,15 @@ Using _scribby_ to enable drawing on an svg element:
 ```javascript
 var svgEl = document.getElementById('svg');
 var scr = new Scribby(svgEl);
+scr.setAttrStroke('blue');
+scr.setAttrStrokeWidth(4);
+ ...
+scr.undo();
+scr.redo();
+scr.reset();
+
+var keep = scr.toJson();
+var dup = new Scribby(svgEl2, keep);
 ```
 ![svg element](example/scribby-svg.png)
 
