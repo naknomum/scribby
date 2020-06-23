@@ -86,7 +86,6 @@ Possible features and improvements.... though these may go against the objective
 * better configuration via constructor
 * generalize (or plugin?) rest support
 * scaling / re-sizing
-* undo / eraser
 * sharing (live), see also:
 * multi-user (as "layers")
 
