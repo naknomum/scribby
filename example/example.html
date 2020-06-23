@@ -10,9 +10,10 @@ var latest = null;
 Notey.pageKey = 'EXAMPLE';
 //Notey.remoteUrl = 'https://jsonblob.com/api/jsonBlob';  //feeling lucky???
 
+var scr;
 function init() {
 	//this just makes a simple scribby-enabled svg element
-	new Scribby(document.getElementById("svgElement"));
+	scr = new Scribby(document.getElementById("svgElement"));
 
 	//this will load previous Noteys, or just make a single new one
 	var alln = Notey.loadAll();  //comes from localStorage
