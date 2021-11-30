@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>scribby embed example</title>
+<style>
+.scribby-embed {
+	width: 400px;
+	height: 300px;
+	margin: 50px;
+	background-color: #DDD;
+	border-radius: 8px;
+	cursor: crosshair;
+}
+</style>
+</head>
+
+<body>
+	<object data="../lib/scribby-embed.svg" class="scribby-embed" id="my-id"></object>
+	<object data="../lib/scribby-embed.svg" class="scribby-embed"></object>
+<!--
+
+	Allows for very simple one-line implementation.
+
+	Scribby object can be accessed via object:
+
+		let obj = document.getElementById('my-id');
+		// obj.scribby is the Scribby object
+		obj.scribby.reset();    // and any other method on Scribby class
+
+		// some new ones added
+		obj.scribby.getAll();    // get all on the page
+		obj.scribby.resetAll();  // clear all on page
+
+-->
+</body>
+</html>
