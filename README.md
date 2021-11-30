@@ -21,7 +21,16 @@ _scribby_ is a javascript library which lets users draw simple "scribbles" on a 
 The main functionality is in **scribby.js**, which handles the drawing on an svg dom element.  Also included is **notey.js** which presents
 a simple post-it note-like object on a webpage, as an example application using scribby.js.  Utility functionality is found in draggy.js and resty.js (but these are only needed for the Notey app).
 
+### Embeddable svg file
+
+There is also an `scribby-embed.svg` file that can simply be inserted into a page as an HTML Object, such as:
+
+`<object data="scribby-embed.svg"></object>`
+
+
 ## Usage examples
+
+### Draw on svg
 
 Using _scribby_ to enable drawing on an svg element:
 
@@ -38,7 +47,10 @@ scr.reset();
 var keep = scr.toJson();
 var dup = new Scribby(svgEl2, keep);
 ```
+
 ![svg element](example/scribby-svg.png)
+
+### Notey usage
 
 Using _notey_ to put a note on a page (which uses _scribby_ for its contents):
 
@@ -49,6 +61,16 @@ note.save();
 ```
 ![note and active note (mouseover)](example/scribby-notey.png)
 
+
+### Using scribby-embed.svg
+
+Self-contained, simple, one-line usage.  (May be used multiple times on a single page.)
+
+```javascript
+   <object data="scribby-embed.svg" id="my-id" style="width: 300px; height: 200px;"></object>
+```
+
+### Misc. 
 
 Typical json representation of a _note_:
 
