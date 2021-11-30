@@ -23,7 +23,7 @@ a simple post-it note-like object on a webpage, as an example application using 
 
 ### Embeddable svg file
 
-There is also an `scribby-embed.svg` file that can simply be inserted into a page as an HTML Object, such as:
+There is also a `scribby-embed.svg` file that can simply be inserted into a page as an HTML Object, such as:
 
 `<object data="scribby-embed.svg"></object>`
 

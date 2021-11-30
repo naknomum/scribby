@@ -16,6 +16,7 @@
         container.setAttribute('data-scribby-rnd', rnd);
         container.classList.add(CLASS_ACTIVE);
         svgEl = document.getElementsByTagName('svg')[0];
+        svgEl.style.cursor = 'crosshair';
         //scriptContent = svgEl.getElementsByTagName('script')[0].textContent;
     }
 
